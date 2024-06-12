@@ -1,0 +1,14 @@
+.app {
+	display: flex;
+	padding: 30px;
+}
+.col{
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+.header {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
