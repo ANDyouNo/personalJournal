@@ -2,7 +2,7 @@ import React, { useContext, useMemo } from "react";
 import "./JournalList.css";
 import JournalItem from "../JournalItem/JournalItem";
 import CardButton from "../CardButton/CardButton";
-const JournalList = ({ items }) => {
+const JournalList = ({ items, setItem }) => {
 
 
 
@@ -27,7 +27,7 @@ const sortItems = (a, b) => {
   return (
     <div className="journal">
       {filteredItems.map((el) => (
-        <CardButton key={el.id}>
+        <CardButton key={el.id} onClick={() => setItem(el)}>
           <JournalItem
             title={el.title}
             post={el.post}

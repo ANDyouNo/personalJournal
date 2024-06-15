@@ -7,9 +7,10 @@ import LeftPanel from "./layouts/LeftPanel/LeftPanel";
 import JournalAddButton from "./components/JournalAddButton/JournalAddButton";
 import JournalForm from "./components/JournalForm/JournalForm";
 import { useLocalStorage } from "./hooks/use-localstorage.hook";
-
+import { useState } from "react";
 function App() {
   const [items, setItems] = useLocalStorage("data");
+	const [selectedItem, setSelectedItem] = useState(null);
 
   function mapItems(items) {
     if (!items) {
@@ -45,23 +46,35 @@ function App() {
     }
   };
 
+
+	const deleteItem = (id) => {
+		setItems([...items.filter(i => i.id !== id)])
+
+	}
+
+	const clearForm = () => {
+    setSelectedItem(null)
+  }
+
   return (
-    
-      <div className="app">
-        <div className="col">
-          <div className="header">
-            <Header />
-            <JournalAddButton />
-          </div>
-          <LeftPanel>
-            <JournalList items={mapItems(items)} />
-          </LeftPanel>
+    <div className="app">
+      <div className="col">
+        <div className="header">
+          <Header />
+          <JournalAddButton clearForm={clearForm} />
         </div>
-        <Body>
-          <JournalForm onSubmit={addItem} />
-        </Body>
+        <LeftPanel>
+          <JournalList items={mapItems(items)} setItem={setSelectedItem} />
+        </LeftPanel>
       </div>
-    
+      <Body>
+        <JournalForm
+          onSubmit={addItem}
+          data={selectedItem}
+          onDelete={deleteItem}
+        />
+      </Body>
+    </div>
   );
 }
 
