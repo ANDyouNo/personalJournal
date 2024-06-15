@@ -2,10 +2,9 @@ import React, { useContext, useMemo } from "react";
 import "./JournalList.css";
 import JournalItem from "../JournalItem/JournalItem";
 import CardButton from "../CardButton/CardButton";
-import { UserContext } from "../../context/user.context";
 const JournalList = ({ items }) => {
 
-	const {userId} = useContext(UserContext)
+
 
 const sortItems = (a, b) => {
   if (a.date < b.date) {
@@ -16,8 +15,8 @@ const sortItems = (a, b) => {
 };
 
 	const filteredItems = useMemo(
-    () => items.filter((el) => el.userId === userId).sort(sortItems),
-    [items, userId]
+    () => items.sort(sortItems),
+    [items]
   );
 
   if (items.length === 0) {
