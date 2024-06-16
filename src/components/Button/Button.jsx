@@ -1,5 +1,3 @@
-//import './Button.css';
-import { useState } from 'react';
 const Button = ({children, onClick}) => {
 
 	return (
@@ -12,11 +10,7 @@ const Button = ({children, onClick}) => {
 			rounded 
 			text-slate-900 
 			font-bold 
-			hover:bg-amber-600 
-			active:bg-amber-700 
-			focus:outline-none 
-			focus:ring 
-			focus:ring-amber-300"
+			hover:bg-amber-600" 
     >
       {children}
     </button>

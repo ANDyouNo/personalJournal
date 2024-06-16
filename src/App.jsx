@@ -1,4 +1,3 @@
-import "./App.css";
 
 import Body from "./layouts/Body/Body";
 import Header from "./components/Header/Header";
@@ -57,14 +56,18 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <div className="col">
-        <div className="header">
+    <div className="flex p-8 bg-zinc-900 text-white">
+      <div className="flex flex-col gap-7">
+        <div className="flex flex-col gap-7">
           <Header />
           <JournalAddButton clearForm={clearForm} />
         </div>
         <LeftPanel>
-          <JournalList items={mapItems(items)} setItem={setSelectedItem} />
+          <JournalList
+            items={mapItems(items)}
+            setItem={setSelectedItem}
+            selectedItem={selectedItem}
+          />
         </LeftPanel>
       </div>
       <Body>

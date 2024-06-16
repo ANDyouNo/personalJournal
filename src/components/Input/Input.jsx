@@ -1,20 +1,21 @@
 import React, {forwardRef} from 'react'
-import styles from './Input.module.css'
+
 import classNames from 'classnames';
 
-const Input = forwardRef(function Input({ className, isValid = true, apperence, ...props }, ref) {
+const Input = forwardRef(function Input({ isValid = true, apperence, ...props }, ref) {
   return (
     <input
-			{...props}
-			ref={ref}
+      {...props}
+      ref={ref}
       className={classNames(
-        className,
-        styles["input"],
+        "bg-inherit border-b rounded font-semibold w-full p-2",
         {
-          [styles["invalid"]]: !isValid,
-					[styles['input-title']]: apperence === 'title'
-        },
-        styles["header"]
+          "border border-red-600": !isValid,
+          "text-4xl": apperence === "title",
+          "text-base": apperence !== "title",
+          "border-zinc-700": isValid,
+          "focus:outline-none": true, // убираем стандартный outline браузера
+        }
       )}
     />
   );

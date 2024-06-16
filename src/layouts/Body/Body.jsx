@@ -1,6 +1,6 @@
 import React from "react";
-import "./Body.css";
+
 export const Body = ({ children }) => {
-  return <div className="body">{children}</div>;
+  return <div className="p-12 w-full pr-0">{children}</div>;
 };
 export default Body;

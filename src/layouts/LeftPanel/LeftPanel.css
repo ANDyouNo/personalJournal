@@ -1,12 +1,3 @@
-.left-panel {
-	width: 400px;
-	display: flex;
-	flex-direction: column;
-	gap: 30px;
-	height: 80vh;
-	overflow: auto;
-}
-
 .left-panel::-webkit-scrollbar {
   width: 0px;
 }
