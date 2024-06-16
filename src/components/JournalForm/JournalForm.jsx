@@ -100,7 +100,7 @@ const JournalForm = ({ onSubmit, data, onDelete }) => {
             onClick={() => deleteJournalItem()}
             className="ease-in-out duration-300 bg-amber-300 w-14 h-14 rounded cursor-pointer hover:bg-amber-600 p-3 "
           >
-            <img src="/Trash.svg" alt="delete" />
+            <img src="./Trash.svg" alt="delete" />
           </button>
         )}
       </div>

@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from "react";
-import "./JournalList.css";
+
 import JournalItem from "../JournalItem/JournalItem";
 import CardButton from "../CardButton/CardButton";
 const JournalList = ({ items, setItem, selectedItem }) => {

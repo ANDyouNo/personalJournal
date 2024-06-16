@@ -22,18 +22,24 @@ function App() {
   }
 
   const addItem = (item) => {
+    const mappedItems = mapItems(items);
+    const newId =
+      mappedItems.length > 0
+        ? Math.max(...mappedItems.map((i) => i.id)) + 1
+        : 1;
+
     if (!item.id) {
       setItems([
-        ...mapItems(items),
+        ...mappedItems,
         {
           ...item,
           date: new Date(item.date),
-          id: items.length > 0 ? Math.max(...items.map((i) => i.id)) + 1 : 1,
+          id: newId,
         },
       ]);
     } else {
       setItems(
-        [...mapItems(items)].map((i) => {
+        mappedItems.map((i) => {
           if (i.id === item.id) {
             return {
               ...item,
